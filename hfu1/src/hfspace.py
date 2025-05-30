@@ -68,7 +68,7 @@ def hf_create_space():
         token=hf_token,
         repo_id=REPO_ID,
         repo_type="space",
-        space_sdk="static",
+        space_sdk="gradio",
     )
 
     header2(f"{REPO_ID}")
@@ -174,7 +174,7 @@ def hf_delete_spaces():
 
     # Config
     repo_ids = [
-        "Chooth/vrs2",
+        "Wornu/grat1",
     ]
     repo_type = "space"
     token = hf_token
