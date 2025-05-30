@@ -1,3 +1,5 @@
+# Main Entry Point
+
 def main():
     print("Hello from gr1!")
 
