@@ -3,12 +3,15 @@ import time
 
 import gradio as gr
 
+chatDescription = """
+# Chat Interface Example
+This example demonstrates a simple chat interface using Gradio.
+"""
+
 
 def chat_1():
     with gr.Blocks() as demo:
-        gr.Markdown(
-            "This is a simple chat interface. Type a message and see the bot's response."
-        )
+        gr.Markdown(chatDescription)
         chatbot = gr.Chatbot(type="messages")
         msg = gr.Textbox()
         clear = gr.ClearButton([msg, chatbot])
