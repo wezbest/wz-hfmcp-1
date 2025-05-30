@@ -80,14 +80,18 @@ source = { virtual = "." }
 dependencies = [
     { name = "gradio", extra = ["mcp"] },
     { name = "python-dotenv" },
+    { name = "requests" },
     { name = "rich" },
+    { name = "sseclient" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "gradio", extras = ["mcp"], specifier = ">=5.32.0" },
     { name = "python-dotenv", specifier = ">=1.1.0" },
+    { name = "requests", specifier = ">=2.32.3" },
     { name = "rich", specifier = ">=14.0.0" },
+    { name = "sseclient", specifier = ">=0.0.27" },
 ]
 
 [[package]]
@@ -785,6 +789,16 @@ sdist = { url = "https://files.pythonhosted.org/packages/8c/f4/989bc70cb8091eda4
 wheels = [
     { url = "https://files.pythonhosted.org/packages/81/05/78850ac6e79af5b9508f8841b0f26aa9fd329a1ba00bf65453c2d312bcc8/sse_starlette-2.3.6-py3-none-any.whl", hash = "sha256:d49a8285b182f6e2228e2609c350398b2ca2c36216c2675d875f81e93548f760", size = 10606, upload-time = "2025-05-30T13:34:11.703Z" },
 ]
+
+[[package]]
+name = "sseclient"
+version = "0.0.27"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "requests" },
+    { name = "six" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/cf/6c/fa601216344952be8f9a51a3f49b4274bbbc58bd395f87f67f6131726358/sseclient-0.0.27.tar.gz", hash = "sha256:b2fe534dcb33b1d3faad13d60c5a7c718e28f85987f2a034ecf5ec279918c11c", size = 7465, upload-time = "2020-09-25T02:46:41.997Z" }
 
 [[package]]
 name = "starlette"
