@@ -1,12 +1,23 @@
-# Chat 1 - Following the Gradio official manual
+import random
+import time
 
 import gradio as gr
 
 
-def ch1_alt(message, history):
-    if len([h for h in history if h['role'] == "assistant"]) % 2 == 0":
-        return 
-    
-
 def chat_1():
-    gr.ChatInterface(
+    with gr.Blocks() as demo:
+        chatbot = gr.Chatbot(type="messages")
+        msg = gr.Textbox()
+        clear = gr.ClearButton([msg, chatbot])
+
+        def respond(message, chat_history):
+            bot_message = random.choice(
+                ["How are you?", "Today is a great day", "I'm very hungry"])
+            chat_history.append({"role": "user", "content": message})
+            chat_history.append({"role": "assistant", "content": bot_message})
+            time.sleep(2)
+            return "", chat_history
+
+        msg.submit(respond, [msg, chatbot], [msg, chatbot])
+
+    demo.launch()
