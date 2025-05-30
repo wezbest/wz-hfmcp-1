@@ -3,6 +3,8 @@ import time
 
 import gradio as gr
 
+from .utz import header1
+
 chatDescription = """
 # Chat Interface Example
 This example demonstrates a simple chat interface using Gradio.
@@ -10,6 +12,8 @@ This example demonstrates a simple chat interface using Gradio.
 
 
 def chat_1():
+    header1("Chat Interface Example")
+
     with gr.Blocks() as demo:
         gr.Markdown(chatDescription)
         chatbot = gr.Chatbot(type="messages")
