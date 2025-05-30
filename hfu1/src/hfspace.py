@@ -8,6 +8,7 @@ from huggingface_hub import (
     delete_repo,
     upload_folder,
 )
+
 from src.utz import header1, header2
 
 # Loading the env file
@@ -18,11 +19,10 @@ hf_token = os.getenv("HF")
 REPO_ID = "Chooth/vrs2"
 
 
-
 #  ███████╗ ██╗   ██╗ ███╗   ██╗  ██████╗
 #  ██╔════╝ ██║   ██║ ████╗  ██║ ██╔════╝
-#  █████╗   ██║   ██║ ██╔██╗ ██║ ██║     
-#  ██╔══╝   ██║   ██║ ██║╚██╗██║ ██║     
+#  █████╗   ██║   ██║ ██╔██╗ ██║ ██║
+#  ██╔══╝   ██║   ██║ ██║╚██╗██║ ██║
 #  ██║      ╚██████╔╝ ██║ ╚████║ ╚██████╗
 #  ╚═╝       ╚═════╝  ╚═╝  ╚═══╝  ╚═════╝
 
@@ -42,8 +42,8 @@ def hf_space_ops():
 
 #  ███╗   ███╗  █████╗  ██╗  ██╗ ███████╗
 #  ████╗ ████║ ██╔══██╗ ██║ ██╔╝ ██╔════╝
-#  ██╔████╔██║ ███████║ █████╔╝  █████╗  
-#  ██║╚██╔╝██║ ██╔══██║ ██╔═██╗  ██╔══╝  
+#  ██╔████╔██║ ███████║ █████╔╝  █████╗
+#  ██║╚██╔╝██║ ██╔══██║ ██╔═██╗  ██╔══╝
 #  ██║ ╚═╝ ██║ ██║  ██║ ██║  ██╗ ███████╗
 #  ╚═╝     ╚═╝ ╚═╝  ╚═╝ ╚═╝  ╚═╝ ╚══════╝
 
@@ -77,10 +77,10 @@ def hf_create_space():
 
 # --- Uploaading files to space ---
 
-#  ██╗   ██╗ ██╗     
-#  ██║   ██║ ██║     
-#  ██║   ██║ ██║     
-#  ██║   ██║ ██║     
+#  ██╗   ██╗ ██╗
+#  ██║   ██║ ██║
+#  ██║   ██║ ██║
+#  ██║   ██║ ██║
 #  ╚██████╔╝ ███████╗
 #   ╚═════╝  ╚══════╝
 
@@ -112,7 +112,8 @@ def hf_upload_dirz():
 
     # Folder to upload
     local_folder_path = "../WO/TEZT/sha3/"  # Path to your local folder
-    path_in_repo = ""  # Upload to repo root (change to subdir like "folder/" if needed)
+    # Upload to repo root (change to subdir like "folder/" if needed)
+    path_in_repo = ""
 
     # Upload the folder
     upload_result = upload_folder(
@@ -128,9 +129,12 @@ def hf_upload_dirz():
             ".env",
             ".env/*",
             "node_modules/",
-            ".gitignore", 
+            ".gitignore",
             "eslint*",
             ".vercel/",
+            "*.toml",
+            "*.lock"
+            ".python-version",
         ],  # Ignore these patterns
         repo_type="space",  # Change to "dataset" or "space" if needed
         commit_message="SmellPantySpace",
@@ -144,10 +148,10 @@ def hf_upload_dirz():
 
 # --- Deleteing Spaces ---
 
-#  ██████╗  ███████╗ ██╗     
-#  ██╔══██╗ ██╔════╝ ██║     
-#  ██║  ██║ █████╗   ██║     
-#  ██║  ██║ ██╔══╝   ██║     
+#  ██████╗  ███████╗ ██╗
+#  ██╔══██╗ ██╔════╝ ██║
+#  ██║  ██║ █████╗   ██║
+#  ██║  ██║ ██╔══╝   ██║
 #  ██████╔╝ ███████╗ ███████╗
 #  ╚═════╝  ╚══════╝ ╚══════╝
 
