@@ -2,19 +2,9 @@
 # ------------------------------------------------------
 import logging
 
-from rich import (
-    box,  # For Panel Boxes
-    inspect,  # For inspect
-)
-from rich import print as rprint  # For rprinting
 from rich.console import Console  # For console.print
 from rich.logging import RichHandler
-from rich.markdown import Markdown  # For markdow
 from rich.panel import Panel  # For Panel()
-from rich.pretty import pprint  # For pretty printing
-from rich.prompt import Prompt  # For Prompting
-from rich.style import Style  # For styles colors
-from rich.text import Text  # For text Styles
 from rich.traceback import install
 
 console = Console()  # Standard code to access console
