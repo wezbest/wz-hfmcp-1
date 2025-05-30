@@ -1,5 +1,5 @@
-1. [WO](#wo)
+1. [WX](#wx)
 
-# WO
+# WX
 
 > Major booty will be here
