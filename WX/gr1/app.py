@@ -7,7 +7,7 @@ def greet(name, intensity):
 
 
 # Setting up the Gradio interface with blocks and tabs
-with gr.Blocks(title="Greeting App") as demo:
+with gr.Blocks(title="RapezApp") as demo:
     with gr.Tabs():
 
         # Intro tab with a welcome message
