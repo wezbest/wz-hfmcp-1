@@ -6,6 +6,9 @@ import gradio as gr
 
 def chat_1():
     with gr.Blocks() as demo:
+        gr.Markdown(
+            "This is a simple chat interface. Type a message and see the bot's response."
+        )
         chatbot = gr.Chatbot(type="messages")
         msg = gr.Textbox()
         clear = gr.ClearButton([msg, chatbot])
