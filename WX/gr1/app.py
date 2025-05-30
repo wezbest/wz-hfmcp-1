@@ -22,19 +22,7 @@ with gr.Blocks(title="Greeting App") as demo:
             """)
 
         # Greeting tab with input fields and a button
-        with gr.Tab("GreetingPanty"):
-            gr.Markdown("## Customize Your Greeting")
-            name = gr.Textbox(label="Name", placeholder="Enter your name")
-            intensity = gr.Slider(value=2, minimum=0,
-                                  maximum=100, label="Intensity", step=1)
-            output = gr.Textbox(label="Greeting", lines=3)
-            greet_btn = gr.Button("Greet")
-            greet_btn.click(fn=greet, inputs=[name, intensity], outputs=output)
 
-            gr.Examples(
-                examples=[["Alice", 10], ["Bob", 20], ["Charlie", 30]],
-                inputs=[name, intensity],
-            )
 
 if __name__ == "__main__":
     demo.launch()
