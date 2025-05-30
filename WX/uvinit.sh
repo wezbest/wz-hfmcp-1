@@ -21,7 +21,7 @@ hea1() {
 }
 # UV Setup
 
-uvsetup() {
+uv_gr() {
     hea1 "UV Installation with gradio"
 
     # Get Name of project
@@ -36,7 +36,7 @@ uvsetup() {
     CO1="uv init $name_of_project"
     CO2="cd $name_of_project"
 
-    DEPS="rich "
+    DEPS="rich gradio[mcp]"
     CO3="uv add  $DEPS"
     CO4="uv tree"
 
@@ -53,4 +53,4 @@ uvsetup() {
 }
 
 # Execution
-menu_choice
+uv_gr
