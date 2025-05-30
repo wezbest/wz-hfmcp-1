@@ -22,7 +22,35 @@ with gr.Blocks(title="Greeting App") as demo:
             """)
 
         # Greeting tab with input fields and a button
+        with gr.Tab("GreetingPanty"):
+            gr.Markdown("## Customize Your Greeting")
 
+            with gr.Row():
+                # First column - Input controls
+                with gr.Column():
+                    name = gr.Textbox(
+                        label="Name", placeholder="Enter your name")
+                    intensity = gr.Slider(
+                        value=2,
+                        minimum=0,
+                        maximum=100,
+                        label="Intensity",
+                        step=1
+                    )
+                    greet_btn = gr.Button("Greet", variant="primary")
+                    output = gr.Textbox(label="Greeting", lines=3)
+                    greet_btn.click(fn=greet, inputs=[
+                                    name, intensity], outputs=output)
+
+                # Second column - Examples
+                with gr.Column():
+                    gr.Markdown("### Try these examples:")
+                    gr.Examples(
+                        examples=[["Alice", 10], ["Bob", 20], ["Charlie", 30]],
+                        inputs=[name, intensity],
+                        label="Click any example to apply",
+                        examples_per_page=3
+                    )
 
 if __name__ == "__main__":
     demo.launch()
