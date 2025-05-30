@@ -133,7 +133,7 @@ def hf_upload_dirz():
             "eslint*",
             ".vercel/",
             "*.toml",
-            "uv.lock"
+            "uv.lock",
             ".python-version",
         ],  # Ignore these patterns
         repo_type="space",  # Change to "dataset" or "space" if needed
