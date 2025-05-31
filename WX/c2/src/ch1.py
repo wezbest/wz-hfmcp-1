@@ -28,9 +28,10 @@ def chatbot1_sambanova():
 
     header1("Chatbot 1 - Llama-4-Maverick-17B-128E-Instruct")
 
-    gr.load("Llama-4-Maverick-17B-128E-Instruct",
-            src=sg.registry,
-            accept_token=True,
-            multimodal=True,
-            token=sn_token,
-            ).launch()
+    def main_chat_fn():
+        gr.load("Llama-4-Maverick-17B-128E-Instruct",
+                src=sg.registry,
+                accept_token=True,
+                multimodal=True,
+                token=sn_token,
+                ).launch()
