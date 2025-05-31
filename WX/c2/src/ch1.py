@@ -2,16 +2,18 @@
 # Testing of chatbot behavior in this
 # //////////////////////////////////////////////////
 
-from .utz import header1
+import os
+
 import gradio as gr
 import sambanova_gradio as sg
 from dotenv import load_dotenv
-impor os
 
+from .utz import header1
 
 # -- Get tokens ---
 load_dotenv("./src/.env")
 hf_token = os.getenv("HF")
+sn_token = os.getenv("SN")
 
 # --- Main Function caller ---
 
@@ -30,5 +32,5 @@ def chatbot1_sambanova():
             src=sg.registry,
             accept_token=True,
             multi_model=True,
-            token="",
+            token=sn_token,
             ).launch()

@@ -14,6 +14,7 @@ from src.utz import header1
 # Extract the HF token from the .env file
 load_dotenv("./src/.env")
 hf_token = os.getenv("HF")
+sn_token = os.getenv("SN")
 
 # --- Main Entrpoint of the function ---
 
