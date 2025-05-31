@@ -2,19 +2,21 @@
 # Testing of chatbot behavior in this
 # //////////////////////////////////////////////////
 
-from .utz import header1
 import gradio as gr
+
+from .utz import header1
 
 
 # --- Main Function caller ---
 def ch1_mf():
-    header1("ch1.py - Chatbot Testing Python")
+    chatbot1_sambanova()
 
 
 # -- Chatbt test 1
 
-def chatbot1():
+def chatbot1_sambanova():
 
-    gr.load_chat(
+    header1("Chatbot 1 - Llama-4-Maverick-17B-128E-Instruct")
 
-    )
+    gr.load("Llama-4-Maverick-17B-128E-Instruct", src=sambanova_gradio.registry,
+            accept_token=True, multi_model=True).launch()

@@ -8,4 +8,5 @@ dependencies = [
     "gradio[mcp]>=5.32.0",
     "huggingface-hub>=0.32.3",
     "rich>=14.0.0",
+    "sambanova-gradio>=0.1.9",
 ]
