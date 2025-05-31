@@ -34,10 +34,10 @@ def chat_c4():
                     time.sleep(0.05)
                     yield "You typed: " + message[: i + 1]
 
-            demo = gr.ChatInterface(
-                slow_echo,
-                type="messages",
-                save_history=True,
-            )
+    demo = gr.ChatInterface(
+        slow_echo,
+        type="messages",
+        save_history=True,
+    )
 
     demo.launch()
