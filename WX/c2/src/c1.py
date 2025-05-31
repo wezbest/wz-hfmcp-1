@@ -20,6 +20,7 @@ def c1():
     with gr.Blocks() as demo:
 
         gr.Markdown("## Chat 1")
+        gr.Markdown("This is a simple greeting app using Gradio.")
         name = gr.Textbox(label="Name", placeholder="Enter your name")
         emoji = gr.Textbox(label="Emoji", placeholder="Enter an emoji")
         greet_button = gr.Button("Greet")
