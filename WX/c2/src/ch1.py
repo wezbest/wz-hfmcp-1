@@ -40,10 +40,10 @@ def chatbot1_sambanova():
 # --- Chat Modal Test with tabs
 
 
-def c2_sn_tabs(sn_token, sg):  # Add parameters for token and registry
+def c2_sn_tabs():
     header1("Chatbot 1 - Llama-4-Maverick-17B-128E-Instruct")
 
-    with gr.Blocks(title="Llama-4-Maverick Chatbot") as app:
+    with gr.Blocks(title="Llama-4-Maverick Chatbot - Sambanova") as app:
         with gr.Tabs():
             # Description Tab
             with gr.Tab("Description"):
