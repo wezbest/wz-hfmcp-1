@@ -1,3 +1,8 @@
+# /////////////////////////
+#  HF Streaming Chatbot - Code generated with Mistral
+#  Using deprecated patterns. Need to refactor.
+# //////////////////////////
+
 import os
 
 import gradio as gr
