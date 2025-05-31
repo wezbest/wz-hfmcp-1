@@ -41,7 +41,7 @@ def chatbot1_sambanova():
 
 
 def chatbot2_sambanova():
-    header1("Chatbot 1 - Llama-4-Maverick-17B-128E-Instruct")
+    header1("Chatbot 2 - SambaNova Llama-4-Maverick-17B-128E-Instruct")
 
     def main_chat_fn():
         # Create description tab first
