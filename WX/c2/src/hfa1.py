@@ -15,9 +15,13 @@ from src.utz import header1
 load_dotenv("./src/.env")
 hf_token = os.getenv("HF")
 
+# --- Main Entrpoint of the function ---
+
 
 def hfa1_main():
     hf1()
+
+# --- Testing out Inference API ---
 
 
 def hf1():
@@ -31,7 +35,7 @@ def hf1():
     completion = client.chat.completions.create(
         model="meta-llama/Llama-3.1-8B-Instruct",
         messages=[
-            {"role": "user", "content": "Can you please let us know more details about your "}
+            {"role": "user", "content": "Sing and dance for me "}
         ],
     )
     rprint(f"Response from {completion.model} model:")
