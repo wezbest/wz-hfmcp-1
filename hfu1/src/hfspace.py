@@ -16,7 +16,7 @@ load_dotenv("src/.env")
 hf_token = os.getenv("HF")
 
 # Main Repo ID here
-REPO_ID = "Wornu/grat1"
+REPO_ID = "Wornu/grat2"
 
 
 #  ███████╗ ██╗   ██╗ ███╗   ██╗  ██████╗
@@ -31,7 +31,7 @@ def hf_space_ops():
     """
     Main function for Hugging Face repository operations.
     """
-    hf_delete_spaces()
+    # hf_delete_spaces()
     hf_create_space()
     hf_upload_dirz()
 
@@ -111,7 +111,7 @@ def hf_upload_dirz():
     """
 
     # Folder to upload
-    local_folder_path = "../WX/gr1/"  # Path to your local folder
+    local_folder_path = "../WX/c1/UL/"  # Path to your local folder
     # Upload to repo root (change to subdir like "folder/" if needed)
     path_in_repo = ""
 
