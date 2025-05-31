@@ -19,14 +19,14 @@ def c1():
 
     with gr.Blocks() as demo:
 
-        with gr.Column():
+        with gr.Row():
             gr.Markdown("## Chat 1")
             name = gr.Textbox(label="Name", placeholder="Enter your name")
             emoji = gr.Textbox(label="Emoji", placeholder="Enter an emoji")
             greet_button = gr.Button("Greet")
             output = gr.Textbox(label="Output")
 
-        with gr.Column():
+        with gr.Row():
             greet_button.click(greet, inputs=[name, emoji], outputs=output)
 
     demo.launch()
