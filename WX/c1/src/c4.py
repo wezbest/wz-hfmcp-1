@@ -24,6 +24,13 @@ def chat_c4():
             time.sleep(0.05)
             yield "You typed: " + message[: i + 1]
 
+    def chat_box():
+        gr.ChatInterface(
+            slow_echo,
+            type="messages",
+            save_history=True,
+        )
+
     # Defining the main block
     with gr.Blocks() as demo:
 
