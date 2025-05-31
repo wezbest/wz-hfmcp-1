@@ -130,5 +130,3 @@ This is a simple Gradio app that allows users to greet others with emojis.
                 mainui()
 
     demo.launch()
-
-# --- Testing Chatbot ---
