@@ -32,7 +32,7 @@ def chat_c4():
             gr.Markdown(intro_message)
 
         # Acual Chat Interface Here
-        with gr.Tab("Chat", scale=1.0):
+        with gr.Tab("Chat", scale=1):
 
             gr.ChatInterface(
                 slow_echo,
