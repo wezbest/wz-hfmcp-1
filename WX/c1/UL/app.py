@@ -7,11 +7,8 @@ import time
 
 import gradio as gr
 
-from .utz import header1
-
 
 def chat_c4():
-    header1("Streaming Chatbot Tests")
 
     # Intro Message
     intro_message = """
