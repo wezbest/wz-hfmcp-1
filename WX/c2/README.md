@@ -7,7 +7,8 @@
 
 # SrcFilezDescription
 
-|          File          |                       Desc                        |
-| :--------------------: | :-----------------------------------------------: |
-| [`c1.py`](./src/c1.py) |         Basic layuot testing side by side         |
-| [`c2.py`](./src/c2.py) | Testing of the tabs and themes for the gradio app |
+|            File            |                       Desc                        |
+| :------------------------: | :-----------------------------------------------: |
+|   [`c1.py`](./src/c1.py)   |         Basic layuot testing side by side         |
+|   [`c2.py`](./src/c2.py)   | Testing of the tabs and themes for the gradio app |
+| [`hfa1.py`](./src/hfa1.py) |           HuggngFace Inference API test           |
