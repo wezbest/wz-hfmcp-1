@@ -26,15 +26,18 @@ def chat_c4():
         with gr.Tab("Intro"):
             gr.Markdown(intro_message)
 
-    def slow_echo(message, history):
-        for i in range(len(message)):
-            time.sleep(0.05)
-            yield "You typed: " + message[: i + 1]
+        # Acual Chat Interface Here
+        with gr.Tab("Chat"):
 
-    demo = gr.ChatInterface(
-        slow_echo,
-        type="messages",
-        save_history=True,
-    )
+            def slow_echo(message, history):
+                for i in range(len(message)):
+                    time.sleep(0.05)
+                    yield "You typed: " + message[: i + 1]
+
+            demo = gr.ChatInterface(
+                slow_echo,
+                type="messages",
+                save_history=True,
+            )
 
     demo.launch()
