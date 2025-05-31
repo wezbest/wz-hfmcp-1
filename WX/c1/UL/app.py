@@ -8,8 +8,7 @@ import time
 import gradio as gr
 
 
-def chat_c4():
-
+def main():
     # Intro Message
     intro_message = """
 # Streaming Chatbot Example
@@ -30,13 +29,16 @@ def chat_c4():
 
     # Defining the main block
     with gr.Blocks() as demo:
-
         # Defining the intro block
         with gr.Tab("Intro"):
             gr.Markdown(intro_message)
 
-        # Acual Chat Interface Here
+        # Actual Chat Interface Here
         with gr.Tab("Chat", scale=1):
             chat_box()
 
     demo.launch()
+
+
+if __name__ == "__main__":
+    main()
