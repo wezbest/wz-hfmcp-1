@@ -34,10 +34,11 @@ def chat_c4():
         # Acual Chat Interface Here
         with gr.Tab("Chat"):
 
-            gr.ChatInterface(
-                slow_echo,
-                type="messages",
-                save_history=True,
-            )
+            with gr.Column(scale=1):
+                gr.ChatInterface(
+                    slow_echo,
+                    type="messages",
+                    save_history=True,
+                )
 
     demo.launch()
