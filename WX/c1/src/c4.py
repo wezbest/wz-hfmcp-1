@@ -1,0 +1,27 @@
+# ///////////////////////////////////////////////////////////////
+# c4.py - Truying to write a streaming chatbot from scratch with Hugging Face API
+#
+# ////////////////////////////////////////////////////////////////
+
+import time
+
+import gradio as gr
+
+from .utz import header1
+
+
+def chat_c4():
+    header1("Streaming Chatbot Tests")
+
+    def slow_echo(message, history):
+        for i in range(len(message)):
+            time.sleep(0.05)
+            yield "You typed: " + message[: i + 1]
+
+    demo = gr.ChatInterface(
+        slow_echo,
+        type="messages",
+        save_history=True,
+    )
+
+    demo.launch()
