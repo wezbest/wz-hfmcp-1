@@ -19,15 +19,13 @@ def c1():
 
     with gr.Blocks() as demo:
 
-        with gr.Row():
-            gr.Markdown("## Chat 1")
-            gr.Markdown("This is a simple greeting app using Gradio.")
-            name = gr.Textbox(label="Name", placeholder="Enter your name")
-            emoji = gr.Textbox(label="Emoji", placeholder="Enter an emoji")
-            greet_button = gr.Button("Greet")
+        gr.Markdown("## Chat 1")
+        gr.Markdown("This is a simple greeting app using Gradio.")
+        name = gr.Textbox(label="Name", placeholder="Enter your name")
+        emoji = gr.Textbox(label="Emoji", placeholder="Enter an emoji")
+        greet_button = gr.Button("Greet")
 
-        with gr.Row():
-            output = gr.Textbox(label="Output")
-            greet_button.click(greet, inputs=[name, emoji], outputs=output)
+        output = gr.Textbox(label="Output")
+        greet_button.click(greet, inputs=[name, emoji], outputs=output)
 
     demo.launch()
