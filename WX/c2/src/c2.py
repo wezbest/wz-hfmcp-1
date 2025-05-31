@@ -7,11 +7,11 @@ import gradio as gr
 from .utz import header1
 
 
-def c1_main_func():
-    c1()
+def c2_mf():
+    c2()
 
 
-def c1():
+def c2():
     header1("Chat 1")
 
     def greet(name, emoji):
