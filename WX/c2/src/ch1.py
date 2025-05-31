@@ -40,48 +40,41 @@ def chatbot1_sambanova():
 # --- Chat Modal Test with tabs
 
 
-def c2_sn_tabs():
+def c2_sn_tabs(sn_token, sg):  # Add parameters for token and registry
     header1("Chatbot 1 - Llama-4-Maverick-17B-128E-Instruct")
 
-    def main_chat_fn():
-        # Create the description tab content first
-        with gr.Blocks() as description_tab:
-            gr.Markdown("""
-            ## Llama-4-Maverick-17B-128E-Instruct
-            
-            **Model Specifications:**
-            - Parameters: 17 Billion
-            - Context Length: 128K tokens
-            - Architecture: Transformer-based
-            - Capabilities: Text and Multimodal
-            
-            **Usage Guidelines:**
-            1. Be specific with your prompts
-            2. For coding questions, specify the language
-            3. Use clear instructions for best results
-            
-            **Example Prompts:**
-            - "Explain quantum entanglement to a 5th grader"
-            - "Write a Python function to calculate Fibonacci sequence"
-            - "Compare CNN and RNN architectures"
-            """)
+    with gr.Blocks(title="Llama-4-Maverick Chatbot") as app:
+        with gr.Tabs():
+            # Description Tab
+            with gr.Tab("Description"):
+                gr.Markdown("""
+                ## 🦙 Llama-4-Maverick-17B-128E-Instruct
+                
+                **Model Specifications:**
+                - Parameters: 17 Billion
+                - Context Length: 128K tokens
+                - Architecture: Transformer-based
+                - Capabilities: Text and Multimodal
+                
+                **Usage Guidelines:**
+                1. Be specific with your prompts  
+                2. For coding questions, specify the language  
+                3. Use clear instructions for best results  
+                
+                **Example Prompts:**
+                - "Explain quantum entanglement to a 5th grader"  
+                - "Write a Python function to calculate Fibonacci sequence"  
+                - "Compare CNN and RNN architectures"  
+                """)
 
-        # Create the chat interface WITHOUT launching it
-        chat_interface = gr.load(
-            "Llama-4-Maverick-17B-128E-Instruct",
-            src=sg.registry,
-            accept_token=True,
-            multimodal=True,
-            token=sn_token
-        )
+            # Chat Tab
+            with gr.Tab("Chat"):
+                gr.load(
+                    "Llama-4-Maverick-17B-128E-Instruct",
+                    src=sg.registry,
+                    token=sn_token,
+                    accept_token=True,
+                    multimodal=True
+                )
 
-        # Create the tabbed interface
-        with gr.Blocks(title="Llama-4-Maverick Chatbot") as app:
-            with gr.Tabs():
-                with gr.Tab("Chat"):
-                    chat_interface.render()
-
-                with gr.Tab("Description"):
-                    description_tab.render()
-
-        app.launch()
+    app.launch()
