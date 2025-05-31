@@ -21,11 +21,17 @@ def c1():
 
         gr.Markdown("## Chat 1")
         gr.Markdown("This is a simple greeting app using Gradio.")
-        name = gr.Textbox(label="Name", placeholder="Enter your name")
-        emoji = gr.Textbox(label="Emoji", placeholder="Enter an emoji")
-        greet_button = gr.Button("Greet")
 
-        output = gr.Textbox(label="Output")
-        greet_button.click(greet, inputs=[name, emoji], outputs=output)
+        with gr.Row():
+
+            with gr.Column():
+
+                name = gr.Textbox(label="Name", placeholder="Enter your name")
+                emoji = gr.Textbox(label="Emoji", placeholder="Enter an emoji")
+                greet_button = gr.Button("Greet")
+
+            with gr.Column():
+                output = gr.Textbox(label="Output")
+                greet_button.click(greet, inputs=[name, emoji], outputs=output)
 
     demo.launch()
