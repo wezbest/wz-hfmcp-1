@@ -3,39 +3,36 @@
 # https://huggingface.co/docs/inference-providers/providers/hf-inference
 # //////////////////////////////////////////////////
 
-from huggingface_hub import InferenceClient
+import os
+
 from dotenv import load_dotenv
+from huggingface_hub import InferenceClient
+from rich import print as rprint  # For rprinting
+
+from src.utz import header1
+
+# Extract the HF token from the .env file
+load_dotenv("./src/.env")
+hf_token = os.getenv("HF")
 
 
 def hfa1_main():
-    pass
+    hf1()
 
 
 def hf1():
+    header1("Hugging Face Inference API Example")
+
     client = InferenceClient(
         provider="hf-inference",
-        api_key="hf_xxxxxxxxxxxxxxxxxxxxxxxx",
+        api_key=hf_token,
     )
 
     completion = client.chat.completions.create(
-        model="Qwen/Qwen2.5-VL-32B-Instruct",
+        model="meta-llama/Llama-3.1-8B-Instruct",
         messages=[
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "text",
-                        "text": "Describe this image in one sentence."
-                    },
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
-                        }
-                    }
-                ]
-            }
+            {"role": "user", "content": "Can you please let us know more details about your "}
         ],
     )
-
-    print(completion.choices[0].message)
+    rprint(f"Response from {completion.model} model:")
+    rprint(completion.choices[0].message.content)

@@ -1,10 +1,10 @@
 # Main entry point for app
 
-from src.ch1 import ch1_mf
+from src.hfa1 import hfa1_main
 
 
 def main():
-    ch1_mf()
+    hfa1_main()
 
 
 if __name__ == "__main__":
