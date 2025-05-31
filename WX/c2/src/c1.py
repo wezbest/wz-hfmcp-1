@@ -24,3 +24,5 @@ def c1():
         output = gr.Textbox(label="Output")
 
         greet_button.click(greet, inputs=[name, emoji], outputs=output)
+
+    demo.launch()
