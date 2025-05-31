@@ -20,7 +20,7 @@ sn_token = os.getenv("SN")
 
 def ch1_mf():
     # chatbot1_sambanova()
-    chatbot2_sambanova()
+    c2_sn_tabs()
 
 
 # -- Chatbt test 1
@@ -40,15 +40,33 @@ def chatbot1_sambanova():
 # --- Chat Modal Test with tabs
 
 
-def chatbot2_sambanova():
-    header1("Chatbot 2 - SambaNova Llama-4-Maverick-17B-128E-Instruct")
+def c2_sn_tabs():
+    header1("Chatbot 1 - Llama-4-Maverick-17B-128E-Instruct")
 
     def main_chat_fn():
-        # Create description tab first
-        with gr.Blocks() as desc_tab:
-            gr.Markdown("### Model Documentation...")
+        # Create the description tab content first
+        with gr.Blocks() as description_tab:
+            gr.Markdown("""
+            ## Llama-4-Maverick-17B-128E-Instruct
+            
+            **Model Specifications:**
+            - Parameters: 17 Billion
+            - Context Length: 128K tokens
+            - Architecture: Transformer-based
+            - Capabilities: Text and Multimodal
+            
+            **Usage Guidelines:**
+            1. Be specific with your prompts
+            2. For coding questions, specify the language
+            3. Use clear instructions for best results
+            
+            **Example Prompts:**
+            - "Explain quantum entanglement to a 5th grader"
+            - "Write a Python function to calculate Fibonacci sequence"
+            - "Compare CNN and RNN architectures"
+            """)
 
-        # Load the chat interface
+        # Create the chat interface WITHOUT launching it
         chat_interface = gr.load(
             "Llama-4-Maverick-17B-128E-Instruct",
             src=sg.registry,
@@ -57,8 +75,13 @@ def chatbot2_sambanova():
             token=sn_token
         )
 
-        # Combine them
-        gr.TabbedInterface(
-            [chat_interface, desc_tab],
-            ["Chat", "Info"]
-        ).launch()
+        # Create the tabbed interface
+        with gr.Blocks(title="Llama-4-Maverick Chatbot") as app:
+            with gr.Tabs():
+                with gr.Tab("Chat"):
+                    chat_interface.render()
+
+                with gr.Tab("Description"):
+                    description_tab.render()
+
+        app.launch()
