@@ -21,10 +21,7 @@ def c2():
         gr.Markdown("## Chat 1")
         gr.Markdown("This is a simple greeting app using Gradio.")
 
-    with gr.Blocks() as demo:
-
-        tab_desc()
-
+    def mainui():
         with gr.Row():
             with gr.Column():
                 name = gr.Textbox(label="Name", placeholder="Enter your name")
@@ -33,6 +30,7 @@ def c2():
             with gr.Column():
                 output = gr.Textbox(label="Output")
                 greet_button.click(greet, inputs=[name, emoji], outputs=output)
+
         examples = gr.Examples(
             examples=[
                 ["Alice", "😊"],
@@ -41,5 +39,10 @@ def c2():
             ],
             inputs=[name, emoji],
         )
+
+    with gr.Blocks() as demo:
+
+        tab_desc()
+        mainui()
 
     demo.launch()
