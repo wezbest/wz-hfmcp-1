@@ -31,6 +31,6 @@ def chatbot1_sambanova():
     gr.load("Llama-4-Maverick-17B-128E-Instruct",
             src=sg.registry,
             accept_token=True,
-            multi_model=True,
+            multimodal=True,
             token=sn_token,
             ).launch()
