@@ -68,11 +68,20 @@ This is a simple Gradio app that allows users to greet others with emojis.
 
 # ////////////////////////////////////////////////////////////////////////////////////
 
-# -- c2 with themes
+# -- c2 with themes testing
 
 
 def c2t1():
     header1("Chat 1 - with Themes")
+
+    themes = [
+        gr.themes.Ocean(),
+        gr.themes.Monochrome(),
+        gr.themes.Citrus(),
+        gr.themes.Glass(),
+        gr.themes.Default(),
+    ]
+    themez = themes[4]
 
     def greet(name, emoji):
         return f"Hello {name} {emoji}"
@@ -112,7 +121,7 @@ This is a simple Gradio app that allows users to greet others with emojis.
         gr.Markdown(main_intro_text)
 
     # Create the Gradio interface with tabs
-    with gr.Blocks(theme=gr.themes.ocean()) as demo:
+    with gr.Blocks(theme=themez) as demo:
         with gr.Tabs():
             with gr.TabItem("🫣 Ui Intro"):
                 tab_intro()
@@ -121,3 +130,5 @@ This is a simple Gradio app that allows users to greet others with emojis.
                 mainui()
 
     demo.launch()
+
+# --- Testing Chatbot ---
