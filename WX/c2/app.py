@@ -1,10 +1,10 @@
 # Main entry point for app
 
-from src.hfa1 import hfa1_main
+from src.ch1 import ch1_mf
 
 
 def main():
-    hfa1_main()
+    ch1_mf()  # Call the chatbot function
 
 
 if __name__ == "__main__":
