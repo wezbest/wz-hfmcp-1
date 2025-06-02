@@ -37,6 +37,7 @@ def gra1_chat1():
 def gra1_chat2():
     header1("Chat Interface Two - Streaming Chatbot interface")
 
+    # Main Function in the chat interface
     def slow_echo(message, history):
         for i in range(len(message)):
             time.sleep(0.05)
