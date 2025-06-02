@@ -163,9 +163,11 @@ def gra1_chat5():
     def apichat(message, history):
         # Build messages in OpenAI format
         messages = [{"role": "user", "content": message}]
-        for user_msg, bot_reply in history:
-            messages.insert(0, {"role": "assistant", "content": bot_reply})
-            messages.insert(0, {"role": "user", "content": user_msg})
+
+        # Iterate over history and add messages to the list
+        for item in history:
+            if isinstance(item, dict):
+                messages.insert(0, item)
 
         client = InferenceClient(
             provider="hf-inference",
@@ -188,7 +190,6 @@ def gra1_chat5():
                 # Small delay to simulate streaming and improve readability
                 time.sleep(0.05)
 
-        # Create chat interface with proper configuration
     demo = gr.ChatInterface(
         apichat,
         title=model,
