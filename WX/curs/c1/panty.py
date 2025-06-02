@@ -1,5 +1,12 @@
+# ///////////////////////////////////
+# Main Entry point of the python function
+# ///////////////////////////////////
+
+from src.gra1 import gra1_main
+
+
 def main():
-    print("Hello from c1!")
+    gra1_main()
 
 
 if __name__ == "__main__":
