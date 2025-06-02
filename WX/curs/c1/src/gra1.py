@@ -155,6 +155,7 @@ def gra1_chat4():
     demo.launch()
 
 # --- Chat streaming refactored to suit actual gradio example
+# --- This version is effective, with the gradio method, for the chat chunking
 
 
 def gra1_chat5():
@@ -206,7 +207,8 @@ def gra1_chat5():
                   "How do I learn Python?", "Explain gravity"],
         flagging_mode="manual",
         flagging_options=["Helpful", "Spam", "Inappropriate", "Other"],
-        type="messages"
+        type="messages",
+        save_history=True
     )
 
     demo.launch()
