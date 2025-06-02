@@ -6,5 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "gradio[mcp]>=5.32.0",
+    "python-dotenv>=1.1.0",
     "rich>=14.0.0",
+    "smolagents>=1.17.0",
 ]
