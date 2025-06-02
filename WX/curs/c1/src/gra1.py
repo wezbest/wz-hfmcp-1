@@ -150,6 +150,7 @@ def gra1_chat4():
             flagging_mode="manual",
             flagging_options=["Helpful", "Spam", "Inappropriate", "Other"],
             save_history=True,
+            type="messages",
         )
 
     demo.launch()
