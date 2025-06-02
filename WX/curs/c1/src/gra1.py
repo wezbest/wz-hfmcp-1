@@ -149,3 +149,47 @@ def gra1_chat4():
     )
 
     demo.launch()
+
+# --- Chat streaming refactored to suit actual gradio example
+
+
+def apichat(message, history):
+    # Build messages in OpenAI format
+    messages = [{"role": "user", "content": message}]
+    for user_msg, bot_reply in history:
+        messages.insert(0, {"role": "assistant", "content": bot_reply})
+        messages.insert(0, {"role": "user", "content": user_msg})
+
+    client = InferenceClient(
+        provider="hf-inference",
+        api_key=hf_token,
+    )
+
+    # Generate streamed response
+    stream = client.chat.completions.create(
+        model=model,
+        messages=messages,
+        stream=True
+    )
+
+    partial_message = ""
+    for chunk in stream:
+        if chunk.choices[0].delta.content:
+            token = chunk.choices[0].delta.content
+            partial_message += token
+            yield partial_message
+            # Small delay to simulate streaming and improve readability
+            time.sleep(0.05)
+
+    # Create chat interface with proper configuration
+    demo = gr.ChatInterface(
+        apichat,
+        title=model,
+        description=f"Chat with {model}",
+        examples=["Tell me a joke",
+                  "How do I learn Python?", "Explain gravity"],
+        flagging_mode="manual",
+        flagging_options=["Helpful", "Spam", "Inappropriate", "Other"],
+    )
+
+    demo.launch()
