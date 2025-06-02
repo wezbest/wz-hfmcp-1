@@ -95,7 +95,7 @@ def gra1_chat3():
     demo = gr.ChatInterface(
         apichat,
         title=modelz[0],
-        type="messages",
+        description="Chat with " + modelz[0],
         flagging_mode="manual",
         examples=["Smell Pussy", "Lick Ass", "Smell Fart"],
         flagging_options=["Like", "Spam", "Inappropriate", "Other"],
