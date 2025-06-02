@@ -103,3 +103,53 @@ def gra1_chat3():
     )
 
     demo.launch()
+
+
+# --- hf Chat with streaming and best practices
+def gra1_chat3():
+    modelz = [
+        "mistralai/Mistral-7B-Instruct-v0.3",
+        "meta-llama/Llama-3.3-70B-Instruct"
+    ]
+
+    def apichat(message, history):
+        messages = []
+        for user_msg, bot_reply in history:
+            messages.append({"role": "user", "content": user_msg})
+            messages.append({"role": "assistant", "content": bot_reply})
+
+        messages.append({"role": "user", "content": message})
+
+        client = InferenceClient(
+            provider="hf-inference",
+            api_key=hf_token,
+        )
+
+        # Enable streaming
+        response_stream = client.chat.completions.create(
+            model=modelz[0],
+            messages=messages,
+            stream=True
+        )
+
+        reply = ""
+        for chunk in response_stream:
+            delta = chunk.choices[0].delta.get("content", "")
+            reply += delta
+            yield reply  # This enables token streaming in ChatInterface
+
+    with gr.Blocks() as demo:
+        gr.Markdown(f"# Chat Interface - {modelz[0]}")
+        gr.ChatInterface(
+            fn=apichat,
+            title=f"{modelz[0]}",
+            description=f"Chat with the {modelz[0]} model",
+            examples=["Tell me a joke",
+                      "How do I learn Python?", "Explain gravity"],
+            flagging_mode="manual",
+            flagging_options=["Helpful", "Spam", "Inappropriate", "Other"],
+            save_history=True,
+            streaming=True  # Enable streaming in the UI
+        )
+
+    demo.launch()
