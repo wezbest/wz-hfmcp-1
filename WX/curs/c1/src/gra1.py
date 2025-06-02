@@ -1,5 +1,5 @@
 # /////////////////////////////////////
-# Gradio Interface tests
+# Gradio Interface tests - Chat interfaces working with HuggingAFace API stfu
 # /////////////////////////////////////
 
 # --- Imports ---
