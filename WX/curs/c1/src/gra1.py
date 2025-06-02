@@ -4,18 +4,11 @@
 
 # --- Imports ---
 
-import os
 import time
 
 import gradio as gr
-from dotenv import load_dotenv
 
 from src.utz import header1
-
-
-load_dotenv("./src/.env")  # -- Loading Src env variables ---
-
-hf_token = os.getenv("HF")
 
 # --- Main chat function ---
 
