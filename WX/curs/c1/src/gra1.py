@@ -197,6 +197,8 @@ def gra1_chat5():
                   "How do I learn Python?", "Explain gravity"],
         flagging_mode="manual",
         flagging_options=["Helpful", "Spam", "Inappropriate", "Other"],
+        type="messages",
+        save_history=True
     )
 
     demo.launch()
