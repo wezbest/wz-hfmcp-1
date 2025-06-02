@@ -9,10 +9,9 @@ import time
 
 import gradio as gr
 from dotenv import load_dotenv
+from huggingface_hub import InferenceClient
 
 from src.utz import header1
-from dotenv import load_dotenv
-from huggingface_hub import InferenceClient
 
 # -- Get the HF Token ---
 
@@ -24,7 +23,8 @@ hf_token = os.getenv("HF")
 
 def gra1_main():
     # gra1_chat1()
-    gra1_chat2()
+    # gra1_chat2()
+    gra1_chat3()
 
 
 # -- Sub functions call ---
@@ -72,7 +72,7 @@ def gra1_chat3():
 
     # Main Function in the chat interface
 
-    def apichat:
+    def apichat():
         client = InferenceClient(
             provider="hf-inference",
             api_key=hf_token,
@@ -86,7 +86,7 @@ def gra1_chat3():
         )
 
     demo = gr.ChatInterface(
-        slow_echo,
+        apichat,
         title="BootySmell",
         type="messages",
         flagging_mode="manual",
