@@ -81,7 +81,7 @@ def gra1_chat3():
         completion = client.chat.completions.create(
             model="meta-llama/Llama-3.1-8B-Instruct",
             messages=[
-                {"role": "user", "content": "Sing and dance for me "}
+                {"role": "user", "content": message}
             ],
         )
 
