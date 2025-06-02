@@ -44,6 +44,7 @@ def gra1_chat2():
 
     demo = gr.ChatInterface(
         slow_echo,
+        title="BootySmell",
         type="messages",
         flagging_mode="manual",
         flagging_options=["Like", "Spam", "Inappropriate", "Other"],
