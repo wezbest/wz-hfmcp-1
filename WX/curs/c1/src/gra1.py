@@ -25,10 +25,14 @@ def gra1_main():
     # gra1_chat1()
     # gra1_chat2()
     # gra1_chat3()
-    gra1_chat4()
+    # gra1_chat4()
+    gra1_chat5()
 
 
 # -- Sub functions call ---
+
+# --- Variables ---
+
 
 # Examples from the official documentation
 def gra1_chat1():
@@ -153,35 +157,38 @@ def gra1_chat4():
 # --- Chat streaming refactored to suit actual gradio example
 
 
-def apichat(message, history):
-    # Build messages in OpenAI format
-    messages = [{"role": "user", "content": message}]
-    for user_msg, bot_reply in history:
-        messages.insert(0, {"role": "assistant", "content": bot_reply})
-        messages.insert(0, {"role": "user", "content": user_msg})
+def gra1_chat5():
+    model = "mistralai/Mistral-7B-Instruct-v0.3"
 
-    client = InferenceClient(
-        provider="hf-inference",
-        api_key=hf_token,
-    )
+    def apichat(message, history):
+        # Build messages in OpenAI format
+        messages = [{"role": "user", "content": message}]
+        for user_msg, bot_reply in history:
+            messages.insert(0, {"role": "assistant", "content": bot_reply})
+            messages.insert(0, {"role": "user", "content": user_msg})
 
-    # Generate streamed response
-    stream = client.chat.completions.create(
-        model=model,
-        messages=messages,
-        stream=True
-    )
+        client = InferenceClient(
+            provider="hf-inference",
+            api_key=hf_token,
+        )
 
-    partial_message = ""
-    for chunk in stream:
-        if chunk.choices[0].delta.content:
-            token = chunk.choices[0].delta.content
-            partial_message += token
-            yield partial_message
-            # Small delay to simulate streaming and improve readability
-            time.sleep(0.05)
+        # Generate streamed response
+        stream = client.chat.completions.create(
+            model=model,
+            messages=messages,
+            stream=True
+        )
 
-    # Create chat interface with proper configuration
+        partial_message = ""
+        for chunk in stream:
+            if chunk.choices[0].delta.content:
+                token = chunk.choices[0].delta.content
+                partial_message += token
+                yield partial_message
+                # Small delay to simulate streaming and improve readability
+                time.sleep(0.05)
+
+        # Create chat interface with proper configuration
     demo = gr.ChatInterface(
         apichat,
         title=model,
