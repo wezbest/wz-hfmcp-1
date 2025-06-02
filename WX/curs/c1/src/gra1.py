@@ -197,8 +197,6 @@ def gra1_chat5():
                 token = chunk.choices[0].delta.content
                 partial_message += token
                 yield partial_message
-                # Small delay to simulate streaming and improve readability
-                time.sleep(0.05)
 
     demo = gr.ChatInterface(
         apichat,
