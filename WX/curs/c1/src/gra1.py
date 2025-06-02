@@ -149,7 +149,7 @@ def gra1_chat4():
             examples=["Tell me a joke",
                       "How do I learn Python?",
                       "Explain gravity"],
-            flagging="manual",
+            flagging_mode="manual",
             flagging_options=["Helpful", "Spam", "Inappropriate", "Other"]
         )
 
