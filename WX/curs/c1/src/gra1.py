@@ -161,13 +161,23 @@ def gra1_chat5():
     model = "mistralai/Mistral-7B-Instruct-v0.3"
 
     def apichat(message, history):
-        # Build messages in OpenAI format
+        # Start with the user's current message
         messages = [{"role": "user", "content": message}]
 
-        # Iterate over history and add messages to the list
-        for item in history:
-            if isinstance(item, dict):
+        # Iterate over history and add messages to the list in reverse order
+        for item in reversed(history):
+            if isinstance(item, dict) and 'role' in item and 'content' in item:
                 messages.insert(0, item)
+
+        # Ensure the messages alternate correctly
+        corrected_messages = []
+        for i, msg in enumerate(messages):
+            if i == 0:
+                corrected_messages.append(msg)
+            else:
+                # Ensure alternation between user and assistant
+                if corrected_messages[-1]["role"] != msg["role"]:
+                    corrected_messages.append(msg)
 
         client = InferenceClient(
             provider="hf-inference",
@@ -177,7 +187,7 @@ def gra1_chat5():
         # Generate streamed response
         stream = client.chat.completions.create(
             model=model,
-            messages=messages,
+            messages=corrected_messages,
             stream=True
         )
 
