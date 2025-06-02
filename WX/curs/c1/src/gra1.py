@@ -5,10 +5,12 @@
 # --- Imports ---
 
 import time
+import os
 
 import gradio as gr
 
 from src.utz import header1
+
 
 # --- Main chat function ---
 
