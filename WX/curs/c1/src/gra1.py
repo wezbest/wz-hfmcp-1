@@ -72,7 +72,7 @@ def gra1_chat3():
 
     # Main Function in the chat interface
 
-    def apichat():
+    def apichat(message, history):
         client = InferenceClient(
             provider="hf-inference",
             api_key=hf_token,
@@ -85,7 +85,7 @@ def gra1_chat3():
             ],
         )
 
-        return response.choices[0].message["content"]
+        return completion.choices[0].message["content"]
 
     demo = gr.ChatInterface(
         apichat,
