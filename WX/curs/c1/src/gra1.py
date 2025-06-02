@@ -4,6 +4,8 @@
 
 # --- Imports ---
 
+import time
+
 import gradio as gr
 
 from src.utz import header1
@@ -12,7 +14,8 @@ from src.utz import header1
 
 
 def gra1_main():
-    gra1_chat1()
+    # gra1_chat1()
+    gra1_chat2()
 
 
 # -- Sub functions call ---
@@ -26,4 +29,25 @@ def gra1_chat1():
 
     demo = gr.ChatInterface(fn=echo, type="messages", examples=[
                             "hello", "hola", "merhaba"], title="SellPanty")
+    demo.launch()
+
+# Streaming echo chat test
+
+
+def gra1_chat2():
+    header1("Chat Interface Two - Streaming Chatbot interface")
+
+    def slow_echo(message, history):
+        for i in range(len(message)):
+            time.sleep(0.05)
+            yield "You typed: " + message[: i + 1]
+
+    demo = gr.ChatInterface(
+        slow_echo,
+        type="messages",
+        flagging_mode="manual",
+        flagging_options=["Like", "Spam", "Inappropriate", "Other"],
+        save_history=True,
+    )
+
     demo.launch()
