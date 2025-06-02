@@ -106,7 +106,7 @@ def gra1_chat3():
 
 
 # --- hf Chat with streaming and best practices
-def gra1_chat3():
+def gra1_chat4():
     modelz = [
         "mistralai/Mistral-7B-Instruct-v0.3",
         "meta-llama/Llama-3.3-70B-Instruct"
@@ -125,7 +125,7 @@ def gra1_chat3():
             api_key=hf_token,
         )
 
-        # Enable streaming
+        # Streaming response
         response_stream = client.chat.completions.create(
             model=modelz[0],
             messages=messages,
@@ -136,7 +136,7 @@ def gra1_chat3():
         for chunk in response_stream:
             delta = chunk.choices[0].delta.get("content", "")
             reply += delta
-            yield reply  # This enables token streaming in ChatInterface
+            yield reply  # Gradio detects this and streams
 
     with gr.Blocks() as demo:
         gr.Markdown(f"# Chat Interface - {modelz[0]}")
@@ -149,7 +149,6 @@ def gra1_chat3():
             flagging_mode="manual",
             flagging_options=["Helpful", "Spam", "Inappropriate", "Other"],
             save_history=True,
-            streaming=True  # Enable streaming in the UI
         )
 
     demo.launch()
