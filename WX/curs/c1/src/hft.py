@@ -27,7 +27,7 @@ def hfa1_main():
 
 
 def hf1():
-    header1("Hugging Face Inference API Example")
+    header1("HuggingFace API")
 
     client = InferenceClient(
         provider="hf-inference",
