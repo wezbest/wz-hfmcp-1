@@ -74,7 +74,7 @@ def gra1_chat3():
 
     modelz = [
         "mistralai/Mistral-7B-Instruct-v0.3",
-
+        "meta-llama/Llama-3.3-70B-Instruct"
     ]
 
     def apichat(message, history):
@@ -84,7 +84,7 @@ def gra1_chat3():
         )
 
         completion = client.chat.completions.create(
-            model="meta-llama/Llama-3.1-8B-Instruct",
+            model=modelz[0],
             messages=[
                 {"role": "user", "content": message}
             ],
@@ -94,7 +94,7 @@ def gra1_chat3():
 
     demo = gr.ChatInterface(
         apichat,
-        title="BootySmell",
+        title=modelz[0],
         type="messages",
         flagging_mode="manual",
         examples=["Smell Pussy", "Lick Ass", "Smell Fart"],
