@@ -72,6 +72,11 @@ def gra1_chat3():
 
     # Main Function in the chat interface
 
+    modelz = [
+        "mistralai/Mistral-7B-Instruct-v0.3",
+
+    ]
+
     def apichat(message, history):
         client = InferenceClient(
             provider="hf-inference",
