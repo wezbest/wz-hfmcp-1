@@ -114,11 +114,11 @@ def gra1_chat4():
     ]
 
     def apichat(message, history):
+        # Build messages in OpenAI format
         messages = []
-        for user_msg, bot_reply in history:
-            messages.append({"role": "user", "content": user_msg})
-            messages.append({"role": "assistant", "content": bot_reply})
-
+        for user, assistant in history:
+            messages.append({"role": "user", "content": user})
+            messages.append({"role": "assistant", "content": assistant})
         messages.append({"role": "user", "content": message})
 
         client = InferenceClient(
@@ -126,31 +126,31 @@ def gra1_chat4():
             api_key=hf_token,
         )
 
-        # Streaming response
-        response_stream = client.chat.completions.create(
+        # Generate streamed response
+        stream = client.chat.completions.create(
             model=modelz[0],
             messages=messages,
             stream=True
         )
 
-        reply = ""
-        for chunk in response_stream:
-            delta = chunk.choices[0].delta.get("content", "")
-            reply += delta
-            yield reply  # Gradio detects this and streams
+        partial_message = ""
+        for chunk in stream:
+            if chunk.choices and chunk.choices[0].delta.content:
+                token = chunk.choices[0].delta.content
+                partial_message += token
+                yield partial_message  # Yield accumulated message
 
     with gr.Blocks() as demo:
         gr.Markdown(f"# Chat Interface - {modelz[0]}")
         gr.ChatInterface(
-            fn=apichat,
-            title=f"{modelz[0]}",
-            description=f"Chat with the {modelz[0]} model",
+            apichat,
+            title=modelz[0],
+            description=f"Chat with {modelz[0]}",
             examples=["Tell me a joke",
-                      "How do I learn Python?", "Explain gravity"],
-            flagging_mode="manual",
-            flagging_options=["Helpful", "Spam", "Inappropriate", "Other"],
-            save_history=True,
-            type="messages",
+                      "How do I learn Python?",
+                      "Explain gravity"],
+            flagging="manual",
+            flagging_options=["Helpful", "Spam", "Inappropriate", "Other"]
         )
 
     demo.launch()
