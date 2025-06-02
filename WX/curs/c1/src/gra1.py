@@ -4,13 +4,20 @@
 
 # --- Imports ---
 
-import time
 import os
+import time
 
 import gradio as gr
+from dotenv import load_dotenv
 
 from src.utz import header1
+from dotenv import load_dotenv
+from huggingface_hub import InferenceClient
 
+# -- Get the HF Token ---
+
+load_dotenv("./src/.env")
+hf_token = os.getenv("HF")
 
 # --- Main chat function ---
 
@@ -59,3 +66,33 @@ def gra1_chat2():
 
 
 # --- Getting the HF Api responses in gradio chat interface
+
+def gra1_chat3():
+    header1("Chat Interface Two - Streaming Chatbot interface")
+
+    # Main Function in the chat interface
+
+    def apichat:
+        client = InferenceClient(
+            provider="hf-inference",
+            api_key=hf_token,
+        )
+
+        completion = client.chat.completions.create(
+            model="meta-llama/Llama-3.1-8B-Instruct",
+            messages=[
+                {"role": "user", "content": "Sing and dance for me "}
+            ],
+        )
+
+    demo = gr.ChatInterface(
+        slow_echo,
+        title="BootySmell",
+        type="messages",
+        flagging_mode="manual",
+        examples=["Smell Pussy", "Lick Ass", "Smell Fart"],
+        flagging_options=["Like", "Spam", "Inappropriate", "Other"],
+        save_history=True,
+    )
+
+    demo.launch()
