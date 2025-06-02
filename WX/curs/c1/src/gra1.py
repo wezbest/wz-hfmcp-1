@@ -65,7 +65,7 @@ def gra1_chat2():
     demo.launch()
 
 
-# --- Getting the HF Api responses in gradio chat interface
+# --- Getting the HF Api responses in gradio chat interface This method works ---
 
 def gra1_chat3():
     header1("Chat Interface Two - Streaming Chatbot interface")
