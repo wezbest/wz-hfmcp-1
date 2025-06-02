@@ -25,5 +25,5 @@ def gra1_chat1():
         return message
 
     demo = gr.ChatInterface(fn=echo, type="messages", examples=[
-                            "hello", "hola", "merhaba"], title="Echo Bot")
+                            "hello", "hola", "merhaba"], title="SellPanty")
     demo.launch()
