@@ -24,7 +24,8 @@ hf_token = os.getenv("HF")
 def gra1_main():
     # gra1_chat1()
     # gra1_chat2()
-    gra1_chat3()
+    # gra1_chat3()
+    gra1_chat4()
 
 
 # -- Sub functions call ---
