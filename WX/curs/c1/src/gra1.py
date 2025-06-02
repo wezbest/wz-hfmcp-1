@@ -85,6 +85,8 @@ def gra1_chat3():
             ],
         )
 
+        return response.choices[0].message["content"]
+
     demo = gr.ChatInterface(
         apichat,
         title="BootySmell",
