@@ -41,13 +41,14 @@ def gra1_chat2():
     def slow_echo(message, history):
         for i in range(len(message)):
             time.sleep(0.05)
-            yield "You typed: " + message[: i + 1]
+            yield "You Fucked " + message[: i + 1]
 
     demo = gr.ChatInterface(
         slow_echo,
         title="BootySmell",
         type="messages",
         flagging_mode="manual",
+        examples=["Smell Pussy", "Lick Ass", "Smell Fart"],
         flagging_options=["Like", "Spam", "Inappropriate", "Other"],
         save_history=True,
     )
