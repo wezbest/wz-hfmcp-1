@@ -208,7 +208,6 @@ def gra1_chat5():
         flagging_mode="manual",
         flagging_options=["Helpful", "Spam", "Inappropriate", "Other"],
         type="messages",
-        save_history=True
     )
 
     demo.launch()
