@@ -2,11 +2,12 @@
 # Main Entry point of the python function
 # ///////////////////////////////////
 
-from src.gra1 import gra1_main
+from src.hft import hfa1_main
 
 
 def main():
-    gra1_main()
+    hfa1_main()
+    # gra1_main()
 
 
 if __name__ == "__main__":
