@@ -108,17 +108,14 @@ def gra1_chat3():
 
 # --- hf Chat with streaming and best practices
 def gra1_chat4():
-    modelz = [
-        "mistralai/Mistral-7B-Instruct-v0.3",
-        "meta-llama/Llama-3.3-70B-Instruct"
-    ]
+    model = "mistralai/Mistral-7B-Instruct-v0.3"
 
     def apichat(message, history):
         # Build messages in OpenAI format
         messages = []
-        for user, assistant in history:
-            messages.append({"role": "user", "content": user})
-            messages.append({"role": "assistant", "content": assistant})
+        for user_msg, bot_reply in history:
+            messages.append({"role": "user", "content": user_msg})
+            messages.append({"role": "assistant", "content": bot_reply})
         messages.append({"role": "user", "content": message})
 
         client = InferenceClient(
@@ -128,29 +125,27 @@ def gra1_chat4():
 
         # Generate streamed response
         stream = client.chat.completions.create(
-            model=modelz[0],
+            model=model,
             messages=messages,
             stream=True
         )
 
         partial_message = ""
         for chunk in stream:
-            if chunk.choices and chunk.choices[0].delta.content:
+            if chunk.choices[0].delta.content:
                 token = chunk.choices[0].delta.content
                 partial_message += token
-                yield partial_message  # Yield accumulated message
+                yield partial_message
 
-    with gr.Blocks() as demo:
-        gr.Markdown(f"# Chat Interface - {modelz[0]}")
-        gr.ChatInterface(
-            apichat,
-            title=modelz[0],
-            description=f"Chat with {modelz[0]}",
-            examples=["Tell me a joke",
-                      "How do I learn Python?",
-                      "Explain gravity"],
-            flagging_mode="manual",
-            flagging_options=["Helpful", "Spam", "Inappropriate", "Other"]
-        )
+    # Create chat interface with proper configuration
+    demo = gr.ChatInterface(
+        apichat,
+        title=model,
+        description=f"Chat with {model}",
+        examples=["Tell me a joke",
+                  "How do I learn Python?", "Explain gravity"],
+        flagging_mode="manual",
+        flagging_options=["Helpful", "Spam", "Inappropriate", "Other"],
+    )
 
     demo.launch()
