@@ -25,6 +25,12 @@ def gra2_main():
 # //// Sun Functions /////
 
 
+modelz = [
+    "meta-llama/Llama-3.1-8B-Instruct",
+    "mistralai/Mistral-7B-Instruct-v0.3"
+]
+
+
 def gra2_chat1():
     header1("Testing HF API and Models")
 
@@ -35,9 +41,11 @@ def gra2_chat1():
 
     def predict(message, history):
         history.append({"role": "user", "content": message})
+
         stream = client.chat.completions.create(
-            messages=history, model="gpt-4o-mini", stream=True)
+            messages=history, model=modelz[0], stream=True)
         chunks = []
+
         for chunk in stream:
             chunks.append(chunk.choices[0].delta.content or "")
             yield "".join(chunks)
