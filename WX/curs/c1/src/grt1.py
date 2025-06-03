@@ -4,6 +4,13 @@
 
 from src.utz import header1
 import gradio as gr
+import os
+from dotenv import load_dotenv
+
+# --- Getting the ENV Variables ---
+
+load_dotenv("./src/.env")
+hf_token = os.getenv("HF")
 
 # --- Main Function ---
 
