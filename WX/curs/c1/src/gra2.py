@@ -50,6 +50,6 @@ def gra2_chat1():
             chunks.append(chunk.choices[0].delta.content or "")
             yield "".join(chunks)
 
-        demo = gr.ChatInterface(predict, type="messages")
+    demo = gr.ChatInterface(predict, type="messages")
 
-        demo.launch()
+    demo.launch()
