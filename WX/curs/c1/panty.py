@@ -2,11 +2,11 @@
 # Main Entry point of the python function
 # ///////////////////////////////////
 
-from src.gra2 import gra2_main
+from src.grt1 import grt1_main
 
 
 def main():
-    gra2_main()
+    grt1_main()
 
 
 if __name__ == "__main__":

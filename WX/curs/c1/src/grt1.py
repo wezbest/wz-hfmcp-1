@@ -1,0 +1,11 @@
+# //////////////////////////////////////////////////////////
+# GEneral Gradio tests in this section
+# //////////////////////////////////////////////////////////
+
+from src.utz import header1
+
+# --- Main Function ---
+
+
+def grt1_main():
+    header1("Gradio General Tests ")
