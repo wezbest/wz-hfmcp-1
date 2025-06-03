@@ -6,7 +6,9 @@
 
 import os
 
+import gradio as gr
 from dotenv import load_dotenv
+from huggingface_hub import InferenceClient
 
 from .utz import header1
 
@@ -26,21 +28,20 @@ def gra2_main():
 def gra2_chat1():
     header1("Testing HF API and Models")
 
-    client = OpenAI(
-        base_url="https://api.hyperbolic.xyz/v1/",
-        api_key=api_key,
+    client = InferenceClient(
+        provider="hf-inference",
+        api_key=hf_token,
     )
 
+    def predict(message, history):
+        history.append({"role": "user", "content": message})
+        stream = client.chat.completions.create(
+            messages=history, model="gpt-4o-mini", stream=True)
+        chunks = []
+        for chunk in stream:
+            chunks.append(chunk.choices[0].delta.content or "")
+            yield "".join(chunks)
 
-def predict(message, history):
-    history.append({"role": "user", "content": message})
-    stream = client.chat.completions.create(
-        messages=history, model="gpt-4o-mini", stream=True)
-    chunks = []
-    for chunk in stream:
-        chunks.append(chunk.choices[0].delta.content or "")
-        yield "".join(chunks)
+        demo = gr.ChatInterface(predict, type="messages")
 
-    demo = gr.ChatInterface(predict, type="messages")
-
-    demo.launch()
+        demo.launch()
