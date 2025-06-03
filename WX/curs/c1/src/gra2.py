@@ -30,6 +30,8 @@ modelz = [
     "mistralai/Mistral-7B-Instruct-v0.3"
 ]
 
+# This code work with the minimal examples for calling the cat interface
+
 
 def gra2_chat1():
     header1("Testing HF API and Models")
