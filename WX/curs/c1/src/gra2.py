@@ -20,7 +20,7 @@ hf_token = os.getenv("HF")
 
 
 def gra2_main():
-    header1("Testing HF Chat UI based on docs")
+    gra2_chat1()
 
 # //// Sun Functions /////
 
