@@ -1,3 +1,6 @@
+<h1 align="center"><code> C1 </code></h1>
+<h2 align="center"><i> Testing out Gradio UI for Smol Agents and general tests </i></h2>
+
 1. [c1](#c1)
 2. [Filez](#filez)
 
@@ -13,3 +16,4 @@
 | :------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |  [`hft.py`](./src/hft.py)  |                                                                                                                             Testing out calling HF models with the clients. The function write the output directly to stdout                                                                                                                              |
 | [`gra1.py`](./src/grt1.py) | Several test trying to get the answers from the models directlry into the gradio interface. Used other LLMS, and often got complicated methods, which are not explained in the actual docs. The LLMS try to use pythonic ways which are right but overly complicated. The gradio docs try to make the process easier. You spend a day running these tests |
+| [`gra2.py`](./src/gra2.py) |                                                                                                                                                                  After reading [DOCS]()                                                                                                                                                                   |
