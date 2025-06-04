@@ -4,6 +4,7 @@
 
 import datetime
 import os
+from datetime import datetime
 
 from dotenv import load_dotenv
 from rich import print as rprint
