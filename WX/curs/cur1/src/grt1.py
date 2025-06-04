@@ -63,8 +63,17 @@ def grt1_f2():
 """
         gr.Markdown(message)
 
+    # Input function
+    def input_funtion():
+        gr.Interface(
+            fn=smellpanty,
+            inputs=gr.Textbox(lines=2, label="Name"),
+            outputs="text",
+        )
+
     # Tabbed Function
     with gr.Blocks() as demo:
         intro_msg()
+        input_funtion()
 
     demo.launch()
