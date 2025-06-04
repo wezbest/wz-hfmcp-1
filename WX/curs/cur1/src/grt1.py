@@ -73,6 +73,8 @@ def grt1_f2():
                 outputs="text",
             )
 
+    # Chat Interface
+
     # Tabbed Function
     with gr.Blocks() as demo:
         intro_msg()
