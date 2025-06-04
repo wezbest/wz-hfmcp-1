@@ -58,18 +58,20 @@ def grt1_f2():
 
     # tabbed function intro tab
     def intro_msg():
-        message = """
-# Interface testing
-"""
-        gr.Markdown(message)
+        with gr.Tab("IntroTab"):
+            message = """
+    # Interface testing
+    """
+            gr.Markdown(message)
 
     # Input function
     def input_funtion():
-        gr.Interface(
-            fn=smellpanty,
-            inputs=gr.Textbox(lines=2, label="Name"),
-            outputs="text",
-        )
+        with gr.Tab("InputTab"):
+            gr.Interface(
+                fn=smellpanty,
+                inputs=gr.Textbox(lines=2, label="Name"),
+                outputs="text",
+            )
 
     # Tabbed Function
     with gr.Blocks() as demo:
