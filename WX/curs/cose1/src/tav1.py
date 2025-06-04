@@ -5,6 +5,7 @@
 import os
 
 from dotenv import load_dotenv
+from rich import print as rprint
 from tavily import TavilyClient
 
 from .utz import header1
@@ -24,8 +25,9 @@ def main_tv():
 # -- Testing functions below ---
 
 def tv_search_1():
-
-    tavily_client = TavilyClient(api_key=TV)
-    response = tavily_client.search("Who is Leo Messi?")
-
-    print(response)
+    try:
+        tavily_client = TavilyClient(api_key=T_V)
+        response = tavily_client.search("Who is Leo Messi?")
+        rprint(response)
+    except Exception as e:
+        rprint(f"[bold red]Error:[/bold red] {e}")
