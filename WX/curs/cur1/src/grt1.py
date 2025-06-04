@@ -51,3 +51,7 @@ def grt1_f1():
 
 def grt1_f2():
     header1("Gradio I/O Tests ")
+
+    # Function that executes
+    def smellpanty(name):
+        return name + "SmellFarts"
