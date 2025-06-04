@@ -5,6 +5,7 @@
 import os
 
 from dotenv import load_dotenv
+from tavily import TavilyClient
 
 from .utz import header1
 
@@ -21,3 +22,10 @@ def main_tv():
 
 
 # -- Testing functions below ---
+
+def tv_search_1():
+
+    tavily_client = TavilyClient(api_key=TV)
+    response = tavily_client.search("Who is Leo Messi?")
+
+    print(response)
