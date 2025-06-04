@@ -19,15 +19,20 @@ T_V = os.getenv("TA")
 
 def main_tv():
     header1("Tavily Testing")
-    print(T_V)
+    tv_search_1()
 
 
 # -- Testing functions below ---
 
 def tv_search_1():
+
+    header1("Tavily Testing 1 ")
+
+    search_query = "What is cosmology"
+
     try:
         tavily_client = TavilyClient(api_key=T_V)
-        response = tavily_client.search("Who is Leo Messi?")
+        response = tavily_client.search(search_query)
         rprint(response)
     except Exception as e:
         rprint(f"[bold red]Error:[/bold red] {e}")
