@@ -11,3 +11,5 @@ dependencies = [
     "rich>=14.0.0",
     "smolagents>=1.17.0",
 ]
+[tool.uv.scripts]
+serve = "gradio app.py"
