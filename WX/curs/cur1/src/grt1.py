@@ -18,11 +18,12 @@ hf_token = os.getenv("HF")
 
 
 def grt1_main():
-    grt1_f1()
+    # grt1_f1()
+    grt1_f2()
 
 # --- Sub functions ----
 
-# Trying to understand basic input and ouput here
+# Trying to understand basic input and ouput here Testing the tabbed interfaces here
 
 
 def grt1_f1():
@@ -42,3 +43,9 @@ def grt1_f1():
         tab1()
 
     demo.launch()
+
+# --- I/O Tests ---
+
+
+def grt1_f2():
+    header1("Gradio I/O Tests ")
