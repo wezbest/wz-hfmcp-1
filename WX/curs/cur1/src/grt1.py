@@ -18,6 +18,7 @@ hf_token = os.getenv("HF")
 
 
 def grt1_main():
+    """ Main Entry Function called in panty.py"""
     # grt1_f1()
     grt1_f2()
 
@@ -27,6 +28,7 @@ def grt1_main():
 
 
 def grt1_f1():
+    """Tabbed interface tests isolatin of into tabs"""
     header1("Gradio General Tests ")
 
     def greet(name):
