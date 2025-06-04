@@ -18,3 +18,6 @@ T_V = os.getenv("TA")
 def main_tv():
     header1("Tavily Testing")
     print(T_V)
+
+
+# -- Testing functions below ---
