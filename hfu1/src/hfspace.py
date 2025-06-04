@@ -8,7 +8,6 @@ from huggingface_hub import (
     delete_repo,
     upload_folder,
 )
-
 from src.utz import header1, header2
 
 # Loading the env file
@@ -16,7 +15,7 @@ load_dotenv("src/.env")
 hf_token = os.getenv("HF")
 
 # Main Repo ID here
-REPO_ID = "Wornu/grat2"
+REPO_ID = "Wornu/grh1"
 
 
 #  ███████╗ ██╗   ██╗ ███╗   ██╗  ██████╗
@@ -111,7 +110,7 @@ def hf_upload_dirz():
     """
 
     # Folder to upload
-    local_folder_path = "../WX/c1/UL/"  # Path to your local folder
+    local_folder_path = "../WX/mywo/ghr1/UL/"  # Path to your local folder
     # Upload to repo root (change to subdir like "folder/" if needed)
     path_in_repo = ""
 
@@ -174,7 +173,7 @@ def hf_delete_spaces():
 
     # Config
     repo_ids = [
-        "Wornu/grat2",
+        "Wornu/grh1",
     ]
     repo_type = "space"
     token = hf_token
