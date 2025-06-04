@@ -1,6 +1,16 @@
 import gradio as gr
 
-with gr.Blocks() as demo:
+themes = [
+    gr.themes.Ocean(),
+    gr.themes.Monochrome(),
+    gr.themes.Citrus(),
+    gr.themes.Glass(),
+    gr.themes.Default(),
+    gr.themes.Soft()
+]
+choose_theme = themes[5]
+
+with gr.Blocks(theme=choose_theme) as demo:
 
     with gr.Tab("Intro"):
         gr.Markdown("# Booty Dance")
@@ -13,6 +23,15 @@ with gr.Blocks() as demo:
         inp.change(fn=lambda x: f"Welcome, {x}!",
                    inputs=inp,
                    outputs=out)
+
+        examples = gr.Examples(
+            examples=[
+                ["Alice"],
+                ["Bob"],
+                ["Charlie"],
+            ],
+            inputs=[inp],
+        )
 
 if __name__ == "__main__":
     demo.launch()
