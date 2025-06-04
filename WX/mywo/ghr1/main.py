@@ -1,5 +1,13 @@
 import gradio as gr
 
+themes = [
+    gr.themes.Ocean(),
+    gr.themes.Monochrome(),
+    gr.themes.Citrus(),
+    gr.themes.Glass(),
+    gr.themes.Default(),
+]
+
 with gr.Blocks() as demo:
 
     with gr.Tab("Intro"):
