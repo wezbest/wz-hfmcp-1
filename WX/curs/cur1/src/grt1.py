@@ -55,3 +55,16 @@ def grt1_f2():
     # Function that executes
     def smellpanty(name):
         return name + "SmellFarts"
+
+    # tabbed function intro tab
+    def intro_msg():
+        message = """
+# Interface testing
+"""
+        gr.Markdown(message)
+
+    # Tabbed Function
+    with gr.Blocks() as demo:
+        intro_msg()
+
+    demo.launch()
