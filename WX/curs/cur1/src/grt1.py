@@ -2,17 +2,16 @@
 # GEneral Gradio tests in this section
 # //////////////////////////////////////////////////////////
 
-import os
 
 import gradio as gr
-from dotenv import load_dotenv
 
+# from dotenv import load_dotenv
 from src.utz import header1
 
 # --- Getting the ENV Variables ---
 
-load_dotenv("./src/.env")
-hf_token = os.getenv("HF")
+# load_dotenv("./src/.env")
+# hf_token = os.getenv("HF")
 
 # --- Main Function ---
 
