@@ -44,37 +44,40 @@ def tv_search_1():
 def tv_search_2():
     header1("Tavily Testing 1")
 
-    search_query = "What is cosmology"
+      search_query = "What is cosmology"
 
-    try:
-        tavily_client = TavilyClient(api_key=T_V)
-        response = tavily_client.search(search_query)
-        rprint(response)
+       try:
+            tavily_client = TavilyClient(api_key=T_V)
+            response = tavily_client.search(search_query)
+            rprint(response)
 
-        # Save results to Markdown
-        if response and "results" in response:
-            now = datetime.now()
-            timestamp = now.strftime("%Y-%m-%d_%H-%M-%S")
-            filename = f"tavily_results_{timestamp}.md"
+            # Save results to Markdown inside rez/
+            if response and "results" in response:
+                now = datetime.now()
+                timestamp = now.strftime("%Y-%m-%d_%H-%M-%S")
 
-            md = [
-                "# Tavily Search Results",
-                f"**Query**: {response['query']}",
-                f"**Generated At**: {now.strftime('%Y-%m-%d %H:%M:%S')}",
-                "\n---"
-            ]
+                # Create rez directory if it doesn't exist
+                os.makedirs("rez", exist_ok=True)
+                filename = f"rez/tavily_results_{timestamp}.md"
 
-            for i, result in enumerate(response["results"], 1):
-                md.append(f"\n### {i}. {result.get('title', 'No Title')}")
-                md.append(
-                    f"[{result.get('url', '')}]({result.get('url', '')})")
-                md.append(result.get('content', 'No content available.'))
-                md.append("---")
+                md = [
+                    "# Tavily Search Results",
+                    f"**Query**: {response['query']}",
+                    f"**Generated At**: {now.strftime('%Y-%m-%d %H:%M:%S')}",
+                    "\n---"
+                ]
 
-            with open(filename, "w", encoding="utf-8") as f:
-                f.write("\n".join(md))
+                for i, result in enumerate(response["results"], 1):
+                    md.append(f"\n### {i}. {result.get('title', 'No Title')}")
+                    md.append(
+                        f"[{result.get('url', '')}]({result.get('url', '')})")
+                    md.append(result.get('content', 'No content available.'))
+                    md.append("---")
 
-            rprint(f"[green]Results saved to:[/green] {filename}")
+                with open(filename, "w", encoding="utf-8") as f:
+                    f.write("\n".join(md))
 
-    except Exception as e:
-        rprint(f"[bold red]Error:[/bold red] {e}")
+                rprint(f"[green]Results saved to:[/green] {filename}")
+
+        except Exception as e:
+            rprint(f"[bold red]Error:[/bold red] {e}")
