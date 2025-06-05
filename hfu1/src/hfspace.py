@@ -30,7 +30,7 @@ def hf_space_ops():
     """
     Main function for Hugging Face repository operations.
     """
-    # hf_delete_spaces()
+    hf_delete_spaces()
     hf_create_space()
     hf_upload_dirz()
 
@@ -68,6 +68,7 @@ def hf_create_space():
         repo_id=REPO_ID,
         repo_type="space",
         space_sdk="gradio",
+        private="True"
     )
 
     header2(f"{REPO_ID}")
@@ -110,7 +111,7 @@ def hf_upload_dirz():
     """
 
     # Folder to upload
-    local_folder_path = "../WX/mywo/ghr1/UL/"  # Path to your local folder
+    local_folder_path = "../WX/mywo/pri1/UL/"  # Path to your local folder
     # Upload to repo root (change to subdir like "folder/" if needed)
     path_in_repo = ""
 
@@ -173,7 +174,7 @@ def hf_delete_spaces():
 
     # Config
     repo_ids = [
-        "Wornu/grh1",
+        "Wornu/pr1",
     ]
     repo_type = "space"
     token = hf_token
