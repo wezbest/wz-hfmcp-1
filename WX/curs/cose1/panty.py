@@ -2,11 +2,11 @@
 # Main entry point for the application
 # ///////////////////////////////////////////
 
-from src.tav1 import main_tv
+from src. ag1 import ag1_main
 
 
 def main():
-    main_tv()
+    ag1_main()
 
 
 if __name__ == "__main__":
