@@ -15,7 +15,7 @@ load_dotenv("src/.env")
 hf_token = os.getenv("HF")
 
 # Main Repo ID here
-REPO_ID = "Wornu/pr1"
+REPO_ID = "Wornu/vitest_private_test_1"
 
 
 #  ███████╗ ██╗   ██╗ ███╗   ██╗  ██████╗
@@ -30,8 +30,8 @@ def hf_space_ops():
     """
     Main function for Hugging Face repository operations.
     """
-    hf_delete_spaces()
-    hf_create_space()
+    # hf_delete_spaces()
+    # hf_create_space()
     hf_upload_dirz()
 
 
@@ -67,7 +67,7 @@ def hf_create_space():
         token=hf_token,
         repo_id=REPO_ID,
         repo_type="space",
-        space_sdk="gradio",
+        space_sdk="static",
         private="True"
     )
 
@@ -111,7 +111,7 @@ def hf_upload_dirz():
     """
 
     # Folder to upload
-    local_folder_path = "../WX/mywo/pri1/UL/"  # Path to your local folder
+    local_folder_path = "../WX/mywo/vit1/dist/"  # Path to your local folder
     # Upload to repo root (change to subdir like "folder/" if needed)
     path_in_repo = ""
 
@@ -174,7 +174,7 @@ def hf_delete_spaces():
 
     # Config
     repo_ids = [
-        "Wornu/pr1",
+        "Wornu/vitest_private_test_1"
     ]
     repo_type = "space"
     token = hf_token
