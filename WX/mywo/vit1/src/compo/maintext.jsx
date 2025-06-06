@@ -1,6 +1,6 @@
 import { useState } from "react"
-import reactLogo from "../react.svg"
-import viteLogo from "../vite.svg"
+import reactLogo from "/react.svg"
+import viteLogo from "/vite.svg"
 
 export default function MainText() {
   const [count, setCount] = useState(0)
