@@ -30,7 +30,7 @@ export default function MainText() {
       <div className="card bg-gray-800 p-6 rounded-lg shadow-md text-center mb-6">
         <button
           onClick={() => setCount((count) => count + 1)}
-          className="px-4 py-2 bg-green-600 rounded hover:bg-green-700 transition-colors"
+          className="px-4 py-2 bg-green-600 rounded hover:bg-green-700 transition-colors text-slate-950"
         >
           count is {count}
         </button>
