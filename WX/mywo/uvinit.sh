@@ -52,5 +52,14 @@ uv_gr() {
     echo -e "${GREEN}***** Installation Completed *****${NC}"
 }
 
+# Bun Vite React
+vi1() {
+    hea1 "Vite React Installation with bun"
+    co1="bun create vite@latest"
+    echo -e "--- Executing ${co1} ---"
+    eval "${co1}"
+}
+
 # Execution
-uv_gr
+# uv_gr
+vi1
