@@ -1,0 +1,6 @@
+def main():
+    print("Hello from vg1!")
+
+
+if __name__ == "__main__":
+    main()

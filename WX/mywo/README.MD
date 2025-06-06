@@ -17,3 +17,4 @@ Writing description of the folder and what the project is
 | [`ghr1`](./ghr1/) |            Testing hot reloading of gradio apps by making a `venv`            |
 |  [`gr1`](./gr1/)  |                First test of gradio before going on the above                 |
 | [`pr1`](./pri1/)  | Testing private spaces with gradio in HF will upload artifacts in `UL` folder |
+|  [`vg1`](./vg1/)  |                       Gradio, showing video and images                        |
