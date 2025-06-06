@@ -4,33 +4,33 @@ export default function MainText() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="">
+    <div className="w-full max-w-md px-4 text-center">
       {/* Logo Section */}
-      <div className="flex justify-center gap-12 mb-6">
+      <div className="flex justify-center gap-8 mb-6">
         <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
           <img
             src="/vite.svg"
-            className="w-24 h-24 logo transition-transform hover:scale-110"
+            className="w-20 h-20 transition-transform hover:scale-110"
             alt="Vite logo"
           />
         </a>
         <a href="https://react.dev" target="_blank" rel="noopener noreferrer">
           <img
-            src="/vite.svg"
-            className="w-24 h-24 logo react transition-transform hover:scale-110"
+            src="/react.svg"
+            className="w-20 h-20 transition-transform hover:scale-110"
             alt="React logo"
           />
         </a>
       </div>
 
       {/* Title */}
-      <h1 className="text-4xl font-bold ">Vite </h1>
+      <h1 className="text-4xl font-extrabold mb-6">Vite + React</h1>
 
       {/* Counter Button */}
-      <div className="card bg-gray-800 p-6 rounded-lg shadow-md w-full max-w-sm text-center mb-4">
+      <div className="card bg-gray-800 p-6 rounded-lg shadow-md text-center mb-6">
         <button
           onClick={() => setCount((count) => count + 1)}
-          className="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 transition"
+          className="px-4 py-2 bg-green-600 rounded hover:bg-green-700 transition-colors"
         >
           count is {count}
         </button>
@@ -41,7 +41,7 @@ export default function MainText() {
       </div>
 
       {/* Footer Text */}
-      <p className="read-the-docs text-sm text-gray-400 hover:text-white transition-colors duration-300 text-center">
+      <p className="read-the-docs text-sm text-green-400 hover:text-green-300 transition-colors duration-300">
         Click on the Vite and React logos to learn more
       </p>
     </div>
