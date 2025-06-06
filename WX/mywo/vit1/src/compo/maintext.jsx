@@ -1,6 +1,4 @@
 import { useState } from "react"
-import reactLogo from "../public/react.svg"
-import viteLogo from "../public/vite.svg"
 
 export default function MainText() {
   const [count, setCount] = useState(0)
@@ -11,14 +9,14 @@ export default function MainText() {
       <div className="flex justify-center gap-12 mb-6">
         <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
           <img
-            src={viteLogo}
+            src="/vite.svg"
             className="w-24 h-24 logo transition-transform hover:scale-110"
             alt="Vite logo"
           />
         </a>
         <a href="https://react.dev" target="_blank" rel="noopener noreferrer">
           <img
-            src={reactLogo}
+            src="/vite.svg"
             className="w-24 h-24 logo react transition-transform hover:scale-110"
             alt="React logo"
           />
