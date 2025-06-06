@@ -24,7 +24,7 @@ export default function MainText() {
       </div>
 
       {/* Title */}
-      <h1 className="text-4xl font-bold ">Vite + Reactomatic</h1>
+      <h1 className="text-4xl font-bold ">Vite </h1>
 
       {/* Counter Button */}
       <div className="card bg-gray-800 p-6 rounded-lg shadow-md w-full max-w-sm text-center mb-4">
