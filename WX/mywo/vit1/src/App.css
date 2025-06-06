@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&display=swap");
 @import "tailwindcss";
 @theme {
-  --font-fdin: "FontDiner_Swanky", sans-serif;
+  --font-fdin: "FontDiner Swanky", sans-serif;
 }
