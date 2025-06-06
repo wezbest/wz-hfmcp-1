@@ -4,7 +4,7 @@ export default function MainText() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white font-sans p-6">
+    <div className="">
       {/* Logo Section */}
       <div className="flex justify-center gap-12 mb-6">
         <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
@@ -24,7 +24,7 @@ export default function MainText() {
       </div>
 
       {/* Title */}
-      <h1 className="text-4xl font-bold mb-4">Vite + React</h1>
+      <h1 className="text-4xl font-bold ">Vite + Reactomatic</h1>
 
       {/* Counter Button */}
       <div className="card bg-gray-800 p-6 rounded-lg shadow-md w-full max-w-sm text-center mb-4">
