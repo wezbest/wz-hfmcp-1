@@ -29,37 +29,29 @@ def intro_tab():
 
 
 def video_tab():
-    gr.HTML(
-        """
-            <div style="text-align:center;">
-                <iframe width="560" height="315" 
-                        src="https://www.youtube.com/embed/h556kOzFKXk?si=djDkJmDLi1wSBrDo" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen>
-                </iframe>
-            </div>
-            """
-    )
+    gr.HTML("""
+            <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/Ttj49yTI46w?si=1FZeoSNivLxozQy0" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        """)
 
 
 def video_tab2():
-    gr.HTML(
-        """
-                <div style="text-align:center;">
-                    <iframe width="560" height="315" 
-                            src="https://www.youtube.com/embed/ea6Mp8RzGqo?si=CnzlCFdUdIYYpYDi" 
-                            title="YouTube video player" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin" 
-                            allowfullscreen>
-                    </iframe>
-                </div>
-                """
-    )
+    gr.HTML("""
+            <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/Ttj49yTI46w?si=1FZeoSNivLxozQy0" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        """)
 
 
 with gr.Blocks(theme=choose_theme) as demo:
@@ -69,6 +61,7 @@ with gr.Blocks(theme=choose_theme) as demo:
 
     with gr.Tab("Name Function"):
         intro_tab()
+        video_tab()
 
         with gr.Row():
             with gr.Column(scale=1):
